@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "docs/",
+            "outputPath": "dist/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -29,12 +29,8 @@
               "src/assets/images",
               "src/assets/js",
               "src/assets/css",
-              "src/assets/scss",
-              {
-                "glob": "**/*",
-                "input": "./node_modules/theoplayer/",
-                "output": "./assets/"
-              }
+              "src/assets/scss"
+              
 
             ],
             "styles": [

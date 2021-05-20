@@ -30,7 +30,6 @@ export class PlaylistComponent implements OnInit {
   otherVideos:Array<videoInfo>=[];
   
   public player:any;
-   id: string = 'qDuKsiwS5xw';
  
   constructor(private httpClient:HttpClient,private _sanitizer:DomSanitizer) { }
 
@@ -43,6 +42,7 @@ export class PlaylistComponent implements OnInit {
       for(var i=0;i<data["matchInfo"].length;i++){
         if(data["matchInfo"][i].showOnTop){
           this.topVideo=data["matchInfo"][i];
+          this.topVideo.src+=this.topVideo.src+"?autoplay=1"
         }
         else{
           this.otherVideos.push(data["matchInfo"][i]);

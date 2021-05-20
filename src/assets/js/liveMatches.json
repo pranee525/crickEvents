@@ -5,7 +5,7 @@
             "matchType":"live",
             "videoId":1,
             "title":"Match Title 1",
-            "src":"https://www.youtube.com/embed/Y9X1kX51biM?autoplay=1",
+            "src":"https://www.youtube.com/embed/Y9X1kX51biM",
             "img":"assets/images/video/video-01.jpg",
             "showOnTop":1,
             "videos":{"innings_1":[
@@ -27,7 +27,7 @@
             "matchType":"live",
             "videoId":2,
             "title":"Match Title 2",
-            "src":"https://www.youtube.com/embed/EoZ53ppAmx4?autoplay=1",
+            "src":"https://www.youtube.com/embed/EoZ53ppAmx4",
             "img":"assets/images/video/video-01.jpg",
             "showOnTop":0,
             "videos":{
@@ -48,7 +48,7 @@
             "matchType":"live",
             "videoId":3,
             "title":"Match Title 3",
-            "src":"https://www.youtube.com/embed/7wZbsAzNt1o?autoplay=1",
+            "src":"https://www.youtube.com/embed/7wZbsAzNt1o",
             "img":"assets/images/video/video-01.jpg",
             "showOnTop":0,
             "videos":{
@@ -69,7 +69,7 @@
             "matchType":"live",
             "videoId":4,
             "title":"Match Title 4",
-            "src":"https://www.youtube.com/embed/OX1xG0a4TVo?autoplay=1",
+            "src":"https://www.youtube.com/embed/OX1xG0a4TVo",
             "img":"assets/images/video/video-01.jpg",
             "showOnTop":0,
             "videos":{
@@ -90,7 +90,7 @@
             "matchType":"live",
             "videoId":5,
             "title":"Match Title 5",
-            "src":"https://www.youtube.com/embed/j52nXdQKFD0?autoplay=1",
+            "src":"https://www.youtube.com/embed/j52nXdQKFD0",
             "img":"assets/images/video/video-01.jpg",
             "showOnTop":0,
             "videos":{

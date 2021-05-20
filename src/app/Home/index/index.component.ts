@@ -81,7 +81,7 @@ export class IndexComponent implements OnInit {
         if(inning_1_info[i].videoId==this.videoId)
         {
           this.topVideo=inning_1_info[i];
-
+          this.topVideo.src+=this.topVideo.src+"?autoplay=1";
           this.innings_1.push(this.liveVideo)
         }
         else{
@@ -94,6 +94,7 @@ export class IndexComponent implements OnInit {
         if(inning_2_info[i].videoId==this.videoId)
         {
           this.topVideo=inning_2_info[i];
+          this.topVideo.src+=this.topVideo.src+"?autoplay=1";
           this.innings_2.push(this.liveVideo)
         }
         else{

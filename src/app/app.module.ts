@@ -9,7 +9,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {CommonModule}from '@angular/common';
 import {HttpClientModule}from'@angular/common/http';
-import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 
@@ -29,7 +28,6 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     IvyCarouselModule,
     CommonModule,
     HttpClientModule,
-    NgxYoutubePlayerModule,
     
   ],
   providers: [],
