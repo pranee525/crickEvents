@@ -30,7 +30,7 @@
 }
 .footer-bg-image-two {
     background-image: url("../images/bg/footer-bg-03.jpg");
-    background-repeat: no-repeat;
+    background-repeat:round;
     @media #{$desktop-device,$laptop-device}{
         background-size: cover;
     }

@@ -10,6 +10,12 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {CommonModule}from '@angular/common';
 import {HttpClientModule}from'@angular/common/http';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { ManagejsonComponent } from './Home/managejson/managejson.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -19,6 +25,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     AppComponent,
     IndexComponent,
     PlaylistComponent,
+    ManagejsonComponent,
     
   ],
   imports: [
@@ -27,7 +34,13 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     NgbModule,
     IvyCarouselModule,
     CommonModule,
-    HttpClientModule,
+    HttpClientModule, 
+    BrowserAnimationsModule,
+
+    // Material Modules for Datatable, List and Buttons
+    MatTableModule,
+    MatListModule,
+    MatButtonModule
     
   ],
   providers: [],

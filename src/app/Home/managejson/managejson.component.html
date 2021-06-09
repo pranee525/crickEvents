@@ -1,0 +1,108 @@
+
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/662432fff2cb89b3c0f3c0ac1/1f69fd37fc357eb380e4c1e4e.js");</script>
+
+       
+<!-- Hero Slider start -->
+<div class="hero-slider hero-slider-three" style="margin-top: 8%;">
+    <div class="single-slide-3 d-flex align-items-center bg-image-two">
+        <!-- Hero Content One Start -->
+        <div class="hero-content-three container-fluid">
+            <div class="row">
+                <div style="text-align: end;padding: 10px 104px;">
+                   
+                    <a mat-raised-button href="javascript:void(0)" (click)="savevideo()" color="primary">Toggle Rows</a>
+                  </div>
+                
+                  <table mat-table [dataSource]="dataStudentsList" multiTemplateDataRows>
+                
+                    <ng-container matColumnDef="videoId">
+                      <th mat-header-cell *matHeaderCellDef> ID </th>
+                      <td mat-cell *matCellDef="let element"> 
+                        {{element.videoId}}
+                         </td>
+                    </ng-container>
+                
+                
+                    <ng-container matColumnDef="title">
+                      <th mat-header-cell *matHeaderCellDef> Name </th>
+                      <td mat-cell *matCellDef="let element"> 
+                        <mat-form-field floatLabel="never">
+                            <input matInput placeholder="Name" 
+                               [value]="element.title" [(ngModel)]="element.title" [readonly]="!element.isEdit">
+                        </mat-form-field>
+                     </td>
+                    </ng-container>
+                
+                    <ng-container matColumnDef="src">
+                      <th mat-header-cell *matHeaderCellDef> Age </th>
+                      <td mat-cell *matCellDef="let element">  <mat-form-field floatLabel="never">
+                        <input matInput placeholder="Name" 
+                           [value]="element.src" [(ngModel)]="element.src" [readonly]="!element.isEdit">
+                    </mat-form-field> </td>
+                    </ng-container>
+                
+                
+                    <ng-container matColumnDef="showOnTop">
+                      <th mat-header-cell *matHeaderCellDef> Address </th>
+                      <td mat-cell *matCellDef="let element"> <mat-form-field floatLabel="never">
+                        <input matInput placeholder="Name" 
+                           [value]="element.showOnTop" [(ngModel)]="element.showOnTop" [readonly]="!element.isEdit">
+                    </mat-form-field> </td>
+                    </ng-container>
+                
+                
+                    <ng-container matColumnDef="actions">
+                      <th mat-header-cell *matHeaderCellDef> Actions </th>
+                      <td mat-cell *matCellDef="let element">
+                        <a mat-button href="javascript:void()" (click)="element.isExpanded = !element.isExpanded">View
+                          Subjects</a>
+                          <a mat-button  (click)="element.isEdit = !element.isEdit">Edit</a>
+                      </td>
+                    </ng-container>
+                
+                
+                    <!-- Template for details row -->
+                    <ng-container matColumnDef="expandedDetail">
+                      <td mat-cell *matCellDef="let element" [attr.colspan]="displayedStudentsColumnsList.length">
+                
+                        <div class="row student-element-detail" [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'">
+                          <mat-list>
+                            <div mat-subheader>Subjects of {{element.matchType}}</div>
+                            <mat-list-item *ngFor="let subject of element.inningsList">
+                              <div mat-line>{{subject.img}}</div>
+                              <div mat-line> {{subject.img}} | Grade: {{subject.title}}</div>
+                            </mat-list-item>
+                          </mat-list>
+                        </div>
+                
+                      </td>
+                    </ng-container>
+                
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedStudentsColumnsList;sticky: true"></tr>
+                    <tr mat-row *matRowDef="let element; columns: displayedStudentsColumnsList;" class="student-element-row"
+                      [class.student-expanded-row]="element.isExpanded"></tr>
+                
+                    <!-- Extra row to show detail content column -->
+                    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="student-detail-row"></tr>
+                
+                  </table>
+                
+            </div>
+        </div>
+        <!-- Hero Content One End -->
+    </div>
+    
+</div>
+<!-- Hero Slider end -->
+
+<!-- Our-product-area Area  -->
+<!--// Our-product-area Area  -->
+
+
+<!--// Our-product-area Area  -->
+
+<!-- Footer Area -->
+
+<!--// Footer Area -->    
+

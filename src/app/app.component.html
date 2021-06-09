@@ -6,12 +6,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Home Three || Streamo - Media Streaming App Site Bootstrap 4 Template</title>
+    <title>CrickAi</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
-    
     <!-- CSS 
     ========================= -->
    
@@ -32,9 +31,11 @@
     <script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 
 <!-- THEOplayer library and css -->
-<script type="text/javascript" src="https://cdn.myth.theoplayer.com/613a5f91-aea7-4bee-a643-2cc78032cff5/THEOplayer.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.myth.theoplayer.com/613a5f91-aea7-4bee-a643-2cc78032cff5/ui.css" />
-
+<style>
+    .fixHead{
+        position:fixed; top:0px; margin:auto; z-index:100000; width:100%;
+    }
+</style>
 </head>
 
 <body>
@@ -43,14 +44,14 @@
 <div class="main-wrapper">
     
     <!-- header-medea -->
-    <header class="header-medea clearfix header-sticky">
+    <header class="header-medea clearfix header-sticky fixHead">
         <div class="container-fluid ">
             <div class="row no-gutters">
                 <div class="col-lg-12">
-                    <div class="header-medea-inner-area">
+                    <div class="header-medea-inner-area" style="padding-left: 42px !important;">
                         <div class="left-side">
                             <div class="logo-medea">
-                                <a href="index-3.html"><img src="assets/images/logo/logo-2.png" alt=""></a>
+                                <a href="/index"><img style="height: 43px;" src="assets/images/logo/logo-2.png" alt=""></a>
                             </div>
                         </div>
                         
@@ -91,83 +92,98 @@
                         <span>Highlights</span>
                     </a>
                 </li>
+
+                <li class="normal-item-pro">
+               <!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://crickai.us6.list-manage.com/subscribe/post?u=14e2a63f0451dd5ba443f2b52&amp;id=cbdff22986" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<h2>Subscribe</h2>
+<div class="mc-field-group">
+	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+</label>
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+<div class="mc-field-group">
+	<label for="mce-FNAME">First Name </label>
+	<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+</div>
+<div class="mc-field-group">
+	<label for="mce-LNAME">Last Name </label>
+	<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_14e2a63f0451dd5ba443f2b52_cbdff22986" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
+
+                </li>
             </ul>
         </nav>
     </div>
     <!--// side-main-menu -->    
    
     <!-- Page Conttent -->
-    <main class="page-content-wrapper">
+    <main class="page-content-wrapper" >
         <router-outlet></router-outlet>
         <footer class="footer-area coloer-three">
             <div class="footer-top-one footer-bg-image-two">
                 <div class="container-coustom">
                     <div class="row">   
-                        <div class="col-custom-4 mt--50">
+                        <div class="col-custom-8 mt--50">
                             <!-- footer-widget -->
                             <div class="footer-widget">
-                                <h4 class="footer-widget-title">About Streamo</h4>
+                                
+    
+                            </div>
+                            <!--// footer-widget -->
+                        </div>
+    
+                        <div class="col-custom-2 mt--50">
+                            <!-- footer-widget -->
+                            <div class="footer-widget">
     
                                 <div class="footer-contet">
-                                    <p>Eiusmod tempor incididunt ut la abore et minim ven exerc itation ulla mco lboris naliquip ex ea comm.</p>
-                                    <ul class="fotter-socail">
-                                        <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-instagram"></i></a></li>
-                                    </ul>
+                                    
                                 </div>
     
                             </div>
                             <!--// footer-widget -->
                         </div>
     
-                        <div class="col-custom-3 mt--50">
+                        <div class="col-custom-2 mt--50">
                             <!-- footer-widget -->
                             <div class="footer-widget">
-                                <h4 class="footer-widget-title">Company</h4>
     
                                 <div class="footer-contet">
-                                    <ul class="footer-list">
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">Service</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                    </ul>
+                                    
                                 </div>
     
                             </div>
                             <!--// footer-widget -->
                         </div>
     
-                        <div class="col-custom-3 mt--50">
-                            <!-- footer-widget -->
-                            <div class="footer-widget">
-                                <h4 class="footer-widget-title">Services</h4>
-    
-                                <div class="footer-contet">
-                                    <ul class="footer-list">
-                                        <li><a href="#">Video</a></li>
-                                        <li><a href="#">Movie</a></li>
-                                        <li><a href="#">Tv Series</a></li>
-                                        <li><a href="#">Live</a></li>
-                                    </ul>
-                                </div>
-    
-                            </div>
-                            <!--// footer-widget -->
-                        </div>
-    
-                        <div class="col-custom-3 mt--50">
+                        <div class="col-custom-4 mt--50" style="float: right;">
                             <!-- footer-widget -->
                             <div class="footer-widget">
                                 <h4 class="footer-widget-title">Contact</h4>
     
                                 <div class="footer-contet">
                                     <ul class="footer-contact-list">
-                                        <li> <i class="zmdi zmdi-phone"></i> <a href="#">+022222222</a></li>
-                                        <li> <i class="zmdi zmdi-home"></i> <a href="#">Queen meri street abc/23 Bangladesh</a></li>
-                                        <li> <i class="zmdi zmdi-email"></i> <a href="#">demo@gmail.com</a></li>
+                                        <li> <i class="zmdi zmdi-email"></i> <a href="#">info@gaussiansolutions.com</a></li>
                                     </ul>
                                 </div>
     
@@ -181,7 +197,7 @@
                 <div class="container-coustom">
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
-                            <p class="copyright-text">Copyright &copy; 2018 All right reserve</p>
+                            <p class="copyright-text">Copyright &copy; 2021 All right reserve</p>
                         </div>
                         <div class="col-lg-6 col-md-6">
                             <ul class="footer-bottom-list">

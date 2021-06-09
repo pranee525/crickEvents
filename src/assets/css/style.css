@@ -3291,7 +3291,7 @@ nav.sidebar-menu ul li a:hover {
 
 .footer-bg-image-two {
   background-image: url("../images/bg/footer-bg-03.jpg");
-  background-repeat: no-repeat;
+  background-repeat: round;
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px), only screen and (min-width: 1200px) and (max-width: 1600px) {
   .footer-bg-image-two {

@@ -18,8 +18,6 @@ export interface videoInfo_index {
 
 }
 
-import {IvyCarouselModule} from 'angular-responsive-carousel';
-import { videoInfo } from '../playlist/playlist.component';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -81,7 +79,7 @@ export class IndexComponent implements OnInit {
         if(inning_1_info[i].videoId==this.videoId)
         {
           this.topVideo=inning_1_info[i];
-          this.topVideo.src+=this.topVideo.src+"?autoplay=1";
+          this.topVideo.src=this.topVideo.src+"?autoplay=1";
           this.innings_1.push(this.liveVideo)
         }
         else{
@@ -94,7 +92,7 @@ export class IndexComponent implements OnInit {
         if(inning_2_info[i].videoId==this.videoId)
         {
           this.topVideo=inning_2_info[i];
-          this.topVideo.src+=this.topVideo.src+"?autoplay=1";
+          this.topVideo.src=this.topVideo.src+"?autoplay=1";
           this.innings_2.push(this.liveVideo)
         }
         else{

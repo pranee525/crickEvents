@@ -97,12 +97,12 @@
         var headerHeight = ( $headerMedia.elExists() ) ? $headerMedia[0].getBoundingClientRect().height : 0;
 		if ($('.header-transparant').length) {
 			$('.single-slide-3').css({
-				'min-height': '100vh'
+				/*'min-height': '100vh'*/
 			});
 		} else {
 			
 			$('.single-slide-3').css({
-				'min-height': 'calc(100vh - ' + headerHeight + 'px)'
+				/*'min-height': 'calc(100vh - ' + headerHeight + 'px)'*/
 			});
 		}
 	}
