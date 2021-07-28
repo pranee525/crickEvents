@@ -35,7 +35,7 @@ export class PlaylistComponent implements OnInit {
   topVideo:videoInfo={matchId:0,matchType:"",videoId:0,src:"",showOnTop:false,title:"",img:""};
   otherVideos:Array<videoInfo>=[];
   submitted = false;
-	mailChimpEndpoint = 'https://username.us6.list-manage.com/subscribe/post-json?u=abc123&amp;id=123&';
+	//mailChimpEndpoint = 'https://username.us6.list-manage.com/subscribe/post-json?u=abc123&amp;id=123&';
 	error = '';
  
   constructor(private httpClient:HttpClient,private _sanitizer:DomSanitizer) { }
@@ -77,7 +77,7 @@ export class PlaylistComponent implements OnInit {
 		Validators.required
 	]);
 
-	submit() {
+	/* submit() {
 		this.error = '';
 		if (this.emailControl.status === 'VALID' && this.nameControl.status === 'VALID') {
 
@@ -97,11 +97,11 @@ export class PlaylistComponent implements OnInit {
 					this.error = response.msg;
 				}
 			}, error => {
-				console.error(error);
+				console.error(error);å
 				this.error = 'Sorry, an error occurred.';
 			});
 		}
-	}
+	} */
 
 
 }
