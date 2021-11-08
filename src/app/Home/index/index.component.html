@@ -10,6 +10,14 @@
                             <div class="yt_player_inner player-style-1">
                                 <iframe style="height: 855px;" [src]="videoURL(topVideo.src)" allowfullscreen allow="autoplay"></iframe>
                             </div>
+                            <div class="product-contents titleStyle">
+                                <h4><a href="highlights?matchId={{topVideo.matchId}}">{{topVideo.title}}</a></h4> 
+                                <div class="pro-quality" *ngIf="topVideo.showurl">
+                                    Links:<a href="{{topVideo.url}}" target="_blank">Score Card</a>
+                                </div>
+                                <div class="pro-quality">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -21,7 +29,7 @@
         
         <!-- Our-product-area Area  -->
         <div class="our-product-area pt--50">
-            <div class="container-coustom">
+            <div class="container-coustom" *ngIf="show_innings1">
                
                 <div class="row">
                     <div class="col-lg-12">
@@ -33,62 +41,14 @@
                 
                 <div class="row product-carousl-active">
                    
-                    <div class="col-lg-3">
+                    <div class="col-lg-3" *ngFor="let vid of innings_1">
                         <!-- single-product-wrap -->
                         <div class="single-product-wrap mt--15">
                             <div class="yt_player_inner player-style-1">
-                                <iframe style="height: 370px;" [src]="videoURL(innings_1[0].src)" allowfullscreen></iframe>
+                                <iframe style="height: 370px;" [src]="videoURL(vid.src)" allowfullscreen></iframe>
                             </div>
-                            <div class="product-contents">
-                                <h4><a href="highlights?matchId={{match}}&videoId={{innings_1[0].videoId}}">{{innings_1[0].title}}</a></h4>
-                                <div class="pro-quality">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!--// single-product-wrap -->
-                    </div>
-                    
-                    <div class="col-lg-3">
-                        <!-- single-product-wrap -->
-                        <div class="single-product-wrap mt--15">
-                            <div class="yt_player_inner player-style-1">
-                               <iframe style="height: 370px;" [src]="videoURL(innings_1[1].src)" allowfullscreen></iframe>
-                            </div>
-                            <div class="product-contents">
-                                <h4><a href="highlights?matchId={{match}}&videoId={{innings_1[1].videoId}}">{{innings_1[1].title}}</a></h4>
-                                <div class="pro-quality">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!--// single-product-wrap -->
-                    </div>
-                    
-                    <div class="col-lg-3">
-                        <!-- single-product-wrap -->
-                        <div class="single-product-wrap mt--15">
-                            <div class="yt_player_inner player-style-1">
-                                <iframe style="height: 370px;" [src]="videoURL(innings_1[2].src)" allowfullscreen></iframe>
-                            </div>
-                            <div class="product-contents">
-                                <h4><a href="highlights?matchId={{match}}&videoId={{innings_1[2].videoId}}">{{innings_1[2].title}}</a></h4>
-                                <div class="pro-quality">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!--// single-product-wrap -->
-                    </div>
-                    
-                    <div class="col-lg-3">
-                        <!-- single-product-wrap -->
-                        <div class="single-product-wrap mt--15">
-                            <div class="yt_player_inner player-style-1">
-                                <iframe style="height: 370px;" [src]="videoURL(innings_1[3].src)" allowfullscreen></iframe>
-                            </div>
-                            <div class="product-contents">
-                                <h4><a href="highlights?matchId={{match}}&videoId={{innings_1[3].videoId}}">{{innings_1[3].title}}</a></h4>
+                            <div class="product-contents titleStyle">
+                                <h4><a href="highlights?matchId={{match}}&videoId={{vid.videoId}}">{{vid.title}}</a></h4>
                                 <div class="pro-quality">
                                     
                                 </div>
@@ -102,7 +62,7 @@
         </div>
         <!--// Our-product-area Area  -->
         <div class="our-product-area pt--50">
-            <div class="container-coustom">
+            <div class="container-coustom" *ngIf="show_innings2">
                
                 <div class="row">
                     <div class="col-lg-12">
@@ -114,14 +74,14 @@
                 
                 <div class="row product-carousl-active">
                    
-                    <div class="col-lg-3">
+                    <div class="col-lg-3" *ngFor="let oth_vid of innings_2">
                         <!-- single-product-wrap -->
                         <div class="single-product-wrap mt--15">
                             <div class="yt_player_inner player-style-1">
-                                <iframe style="height: 370px;" [src]="videoURL(innings_2[0].src)" allowfullscreen></iframe>
+                                <iframe style="height: 370px;" [src]="videoURL(oth_vid.src)" allowfullscreen></iframe>
                             </div>
                             <div class="product-contents">
-                                <h4><a href="highlights?matchId={{match}}&videoId={{innings_2[0].videoId}">{{innings_2[0].title}}</a></h4>
+                                <h4><a href="highlights?matchId={{match}}&videoId={{oth_vid.videoId}">{{oth_vid.title}}</a></h4>
                                 <div class="pro-quality">
                                     
                                 </div>
@@ -130,53 +90,6 @@
                         <!--// single-product-wrap -->
                     </div>
                     
-                    <div class="col-lg-3">
-                        <!-- single-product-wrap -->
-                        <div class="single-product-wrap mt--15">
-                            <div class="yt_player_inner player-style-1">
-                               <iframe style="height: 370px;" [src]="videoURL(innings_2[1].src)" allowfullscreen></iframe>
-                            </div>
-                            <div class="product-contents">
-                                <h4><a href="highlights?matchId={{match}}&videoId={{innings_2[1].videoId}}">{{innings_2[1].title}}</a></h4>
-                                <div class="pro-quality">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!--// single-product-wrap -->
-                    </div>
-                    
-                    <div class="col-lg-3">
-                        <!-- single-product-wrap -->
-                        <div class="single-product-wrap mt--15">
-                            <div class="yt_player_inner player-style-1">
-                                <iframe style="height: 370px;" [src]="videoURL(innings_2[2].src)" allowfullscreen></iframe>
-                            </div>
-                            <div class="product-contents">
-                                <h4><a href="highlights?matchId={{match}}&videoId={{innings_2[2].videoId}}">{{innings_2[2].title}}</a></h4>
-                                <div class="pro-quality">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!--// single-product-wrap -->
-                    </div>
-                    
-                    <div class="col-lg-3">
-                        <!-- single-product-wrap -->
-                        <div class="single-product-wrap mt--15">
-                            <div class="yt_player_inner player-style-1">
-                                <iframe style="height: 370px;" [src]="videoURL(innings_2[3].src)" allowfullscreen></iframe>
-                            </div>
-                            <div class="product-contents">
-                                <h4><a href="highlights?matchId={{match}}&videoId={{innings_2[3].videoId}}">{{innings_2[3].title}}</a></h4>
-                                <div class="pro-quality">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!--// single-product-wrap -->
-                    </div>
                     
                 </div>
             </div>

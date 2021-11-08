@@ -11,6 +11,12 @@
                             <div class="yt_player_inner player-style-1">
                                 <iframe style="height: 555px;" [src]="videoURL(topVideo.src)" allowfullscreen allow="autoplay"></iframe>
                             </div>
+                            <div class="product-contents titleStyle">
+                                <h4><a href="highlights?matchId={{topVideo.matchId}}">{{topVideo.title}}</a></h4> 
+                                <div class="pro-quality" *ngIf="topVideo.showurl">
+                                    Links:<a href="{{topVideo.url}}" target="_blank">Score Card</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -34,71 +40,22 @@
                 
                 <div class="row product-carousl-active">
                    
-                    <div class="col-lg-3">
+                    <div class="col-lg-3" *ngFor="let vid of otherVideos">
                         <!-- single-product-wrap -->
                         <div class="single-product-wrap mt--15">
                             <div class="yt_player_inner player-style-1">
                                 <!-- <iframe style="height: 370px;" [src]="videoURL(otherVideos[0].src)" allowfullscreen></iframe> -->
-                             <iframe style="height: 370px;" [src]="videoURL(otherVideos[0].src)" allowfullscreen></iframe>
+                             <iframe style="height: 370px;" [src]="videoURL(vid.src)" allowfullscreen></iframe>
                             </div>
                             <div class="product-contents">
-                                <h4><a href="highlights?matchId=1">{{otherVideos[0].title}}</a></h4>
-                                <div class="pro-quality">
-                                    
+                                <h4><a href="highlights?matchId={{vid.matchId}}">{{vid.title}}</a></h4>
+                                <div class="pro-quality" *ngIf="vid.showurl">
+                                    Links:<a href="{{vid.url}}" target="_blank">Score Card</a>
                                 </div>
                             </div>
                         </div>
                         <!--// single-product-wrap -->
                     </div>
-                    
-                    <div class="col-lg-3">
-                        <!-- single-product-wrap -->
-                        <div class="single-product-wrap mt--15">
-                            <div class="yt_player_inner player-style-1">
-                               <iframe style="height: 370px;" [src]="videoURL(otherVideos[1].src)" allowfullscreen></iframe>
-                            </div>
-                            <div class="product-contents">
-                                <h4><a href="highlights?matchId=2">{{otherVideos[1].title}}</a></h4>
-                                <div class="pro-quality">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!--// single-product-wrap -->
-                    </div>
-                    
-                    <div class="col-lg-3">
-                        <!-- single-product-wrap -->
-                        <div class="single-product-wrap mt--15">
-                            <div class="yt_player_inner player-style-1">
-                                <iframe style="height: 370px;" [src]="videoURL(otherVideos[2].src)" allowfullscreen></iframe>
-                            </div>
-                            <div class="product-contents">
-                                <h4><a href="highlights?matchId=3">{{otherVideos[2].title}}</a></h4>
-                                <div class="pro-quality">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!--// single-product-wrap -->
-                    </div>
-                    
-                    <div class="col-lg-3">
-                        <!-- single-product-wrap -->
-                        <div class="single-product-wrap mt--15">
-                            <div class="yt_player_inner player-style-1">
-                                <iframe style="height: 370px;" [src]="videoURL(otherVideos[3].src)" allowfullscreen></iframe>
-                            </div>
-                            <div class="product-contents">
-                                <h4><a href="highlights?matchId=4">{{otherVideos[3].title}}</a></h4>
-                                <div class="pro-quality">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!--// single-product-wrap -->
-                    </div>
-                    
                 </div>
             </div>
         </div>
