@@ -22,3 +22,25 @@
     font-weight: 600;
 }
 
+
+.matchNotStart{
+    height: 555px;
+    width: 100%;
+    background-color: gray;
+    text-align: center;
+}
+.setCenter{
+    padding-top: 15%;
+}
+.tabs-categorys-list li a {
+    border-radius: 5px;
+    background: #ffab00;
+    height: 50px;
+    width: 100px;
+    padding: 12px 0px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+border: 1px solid #ffab00;
+}

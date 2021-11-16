@@ -103,29 +103,6 @@
         }
     }
 }
-.tabs-categorys-list {
-    & li {
-        margin: 0 10px 10px 10px;
-        & a {
-            border-radius: 5px;
-            background: $theme-color-two;
-            height: 80px;
-            width: 100px;
-            padding: 12px 0px;
-            font-size: 16px;
-            font-weight: 600;
-            color: $white;
-            text-align: center;
-            border: 1px solid $theme-color-two;
-            & span {
-                display: block;
-            }
-            &:hover {
-                color: $white;
-            }
-        }
-    }
-}
 .tabs-categorys-list-two {
     & li {
         margin: 0 10px 10px 10px;

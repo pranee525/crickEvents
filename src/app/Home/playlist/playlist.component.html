@@ -1,20 +1,82 @@
-<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/662432fff2cb89b3c0f3c0ac1/1f69fd37fc357eb380e4c1e4e.js");</script>
+<script
+    id="mcjs">!function (c, h, i, m, p) { m = c.createElement(h), p = c.getElementsByTagName(h)[0], m.async = 1, m.src = i, p.parentNode.insertBefore(m, p) }(document, "script", "https://chimpstatic.com/mcjs-connected/js/users/662432fff2cb89b3c0f3c0ac1/1f69fd37fc357eb380e4c1e4e.js");</script>
 
-       
-        <!-- Hero Slider start -->
-        <div class="hero-slider hero-slider-three" style="margin-top: 8%;">
+<div class="our-play-list-area ">
+    <div class="container-coustom">
+        <div class="row">
+            <div class="col-12" style="padding-top: 100px;">
+                <div class="tabs-categorys-list">
+                    <ul class="nav justify-content-center" role="tablist">
+                        <li><a href="/live?series=U10"> U-10</a></li>
+                        <li><a href="/live?series=U12">U-12</a></li>
+                        <li><a href="/live?series=U14">U-14</a></li>
+                        <li><a href="/live?series=U16">U-16</a></li>
+                        <li><a href="/live?series=U19">U-19</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero Slider start -->
+<div class="hero-slider hero-slider-three" style="margin-top: 8%;">
+    <div class="single-slide-3 d-flex align-items-center bg-image-two">
+        <!-- Hero Content One Start -->
+        <div class="hero-content-three container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="yt_player_inner player-style-1">
+                        <div *ngIf="topVideo.src==''" class="matchNotStart">
+                            <div class="setCenter">Match will Start Soon<br> 
+                                You can checkout recorded Matches till then.</div>
+                        </div>
+                        <iframe *ngIf="topVideo.src!=''" style="height: 555px;" [src]="videoURL(topVideo.src)"
+                            allowfullscreen allow="autoplay"></iframe>
+                    </div>
+                    <div class="product-contents titleStyle">
+                        <h4><a href="highlights?matchId={{topVideo.matchId}}">{{topVideo.title}}</a></h4>
+                        <div class="pro-quality" *ngIf="topVideo.showurl">
+                            Links:<a href="{{topVideo.url}}" target="_blank">Score Card</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero Content One End -->
+    </div>
+
+</div>
+<!-- Hero Slider end -->
+
+<!-- Our-product-area Area  -->
+<div class="our-product-area pt--50">
+    <div class="container-coustom">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-3">
+                    <h2>Other Matches</h2>
+                </div>
+            </div>
+        </div>
+        <div class="hero-slider hero-slider-three" style="margin-top: 8%;" *ngFor="let vid of otherVideos">
             <div class="single-slide-3 d-flex align-items-center bg-image-two">
                 <!-- Hero Content One Start -->
                 <div class="hero-content-three container-fluid">
                     <div class="row">
-                        <div class="col-lg-12"> 
+                        <div class="col-lg-12">
                             <div class="yt_player_inner player-style-1">
-                                <iframe style="height: 555px;" [src]="videoURL(topVideo.src)" allowfullscreen allow="autoplay"></iframe>
+                                <div *ngIf="vid.src==''" class="matchNotStart">
+                                    <div class="setCenter">Match will Start Soon<br> 
+                                        You can checkout recorded Matches till then.</div>
+                                </div>
+                                <iframe *ngIf="vid.src!=''" style="height: 555px;" [src]="videoURL(vid.src)"
+                                    allowfullscreen allow="autoplay"></iframe>
                             </div>
                             <div class="product-contents titleStyle">
-                                <h4><a href="highlights?matchId={{topVideo.matchId}}">{{topVideo.title}}</a></h4> 
-                                <div class="pro-quality" *ngIf="topVideo.showurl">
-                                    Links:<a href="{{topVideo.url}}" target="_blank">Score Card</a>
+                                <h4><a href="highlights?matchId={{vid.matchId}}">{{vid.title}}</a></h4>
+                                <div class="pro-quality" *ngIf="vid.showurl">
+                                    Links:<a href="{{vid.url}}" target="_blank">Score Card</a>
                                 </div>
                             </div>
                         </div>
@@ -22,50 +84,15 @@
                 </div>
                 <!-- Hero Content One End -->
             </div>
-            
+
         </div>
-        <!-- Hero Slider end -->
-        
-        <!-- Our-product-area Area  -->
-        <div class="our-product-area pt--50">
-            <div class="container-coustom">
-               
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title-3">
-                            <h2>Other Matches</h2>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row product-carousl-active">
-                   
-                    <div class="col-lg-3" *ngFor="let vid of otherVideos">
-                        <!-- single-product-wrap -->
-                        <div class="single-product-wrap mt--15">
-                            <div class="yt_player_inner player-style-1">
-                                <!-- <iframe style="height: 370px;" [src]="videoURL(otherVideos[0].src)" allowfullscreen></iframe> -->
-                             <iframe style="height: 370px;" [src]="videoURL(vid.src)" allowfullscreen></iframe>
-                            </div>
-                            <div class="product-contents">
-                                <h4><a href="highlights?matchId={{vid.matchId}}">{{vid.title}}</a></h4>
-                                <div class="pro-quality" *ngIf="vid.showurl">
-                                    Links:<a href="{{vid.url}}" target="_blank">Score Card</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--// single-product-wrap -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--// Our-product-area Area  -->
-        
-        
-        <!--// Our-product-area Area  -->
-        
-        <!-- Footer Area -->
-        
-        <!--// Footer Area -->    
-        
-   
+    </div>
+</div>
+<!--// Our-product-area Area  -->
+
+
+<!--// Our-product-area Area  -->
+
+<!-- Footer Area -->
+
+<!--// Footer Area -->

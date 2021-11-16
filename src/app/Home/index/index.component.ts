@@ -10,19 +10,16 @@ import { ActivatedRoute } from '@angular/router'; import {
 import { DomSanitizer } from '@angular/platform-browser';
 
 
-export interface videoInfo_index {
-  videoId: number,
-  src: string,
-  title: string,
-  matchId: number,
-  matchType: string,
-  showOnTop: boolean,
-  img: string,
-  index: number,
-  url:string,
-  showurl:boolean
-
-
+export interface videoInfo {
+  videoId: number;
+  src: string;
+  title: string;
+  matchId: number;
+  matchType: string;
+  showOnTop: boolean;
+  img: string;
+  url:string;
+  showurl:boolean;
 }
 
 @Component({
@@ -32,167 +29,65 @@ export interface videoInfo_index {
 })
 export class IndexComponent implements OnInit {
 
-  match = 0;
-  videoId = 0;
-  isInit: boolean = true;
-  show_innings1: boolean = false;
-  show_innings2: boolean = false;
+  name = '';
+  topSafeUrl = '';
+  topVideo: videoInfo = {
+    matchId: 0,
+    matchType: '',
+    videoId: 0,
+    src: '',
+    showOnTop: false,
+    title: '',
+    img: '',
+    url:'',
+    showurl:false,
+  };
 
-  topVideo: videoInfo_index = { matchId: 0, matchType: "", videoId: 0, src: "", showOnTop: false, title: "", img: "", index: 0 ,url:"",showurl:false};
-  innings_1: Array<videoInfo_index> = [];
-  innings_2: Array<videoInfo_index> = [];
+  otherVideos: Array<videoInfo> = [];
+  submitted = false;
+  //mailChimpEndpoint = 'https://username.us6.list-manage.com/subscribe/post-json?u=abc123&amp;id=123&';
+  error = '';
 
-  inning_1_info: Array<videoInfo_index> = [];
-  inning_2_info: Array<videoInfo_index> = [];
-  liveVideo: videoInfo_index = { matchId: 0, matchType: "", videoId: 0, src: "", showOnTop: false, title: "", img: "", index: 0,url:"",showurl:false };
-
-  constructor(private route: ActivatedRoute, private httpClient: HttpClient, private _sanitizer: DomSanitizer) { }
+  constructor(
+    private httpClient: HttpClient,
+    private _sanitizer: DomSanitizer,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   async ngOnInit() {
-    console.log("Came here to check data")
-    this.route.queryParams.subscribe(params => {
-      this.match = params['matchId'] != null ? params["matchId"] : 0;
-      this.videoId = params['videoId'];
+    /* this.httpClient.get('/assets/js/liveMatches.json').subscribe((data) => {
+      console.log(data);
+      console.log(data['matchInfo'].length);
 
+      for (var i = 0; i < data['matchInfo'].length; i++) {
+        if (data['matchInfo'][i].showOnTop) {
+          this.topVideo = data['matchInfo'][i];
+          this.topVideo.src = this.topVideo.src + '?autoplay=1';
+        } else {
+          this.otherVideos.push(data['matchInfo'][i]);
+        }
+      }
+
+      this.topSafeUrl ==
+        this._sanitizer.bypassSecurityTrustUrl(this.topVideo.src);
+      console.log(this.topVideo);
+      console.log(this.otherVideos);
+      //this.products = data;
+    }); */
+    this.activatedRoute.queryParams.subscribe(async params => {
+        console.log(params['series'])
+      let series_name = params['series']!=null?params['series']:"";
+      //let color = params['color'];
+      if(series_name!=""){
+
+        await this.getSeriesVideos(series_name);
+      }
+      else
+      {
+
+        await this.getVideos();
+      }
     });
-    if (this.isInit) {
-      this.loadVideos(this.match, this.videoId);
-      this.isInit = false;
-    }
-    else {
-      this.swapVideos(this.match, this.videoId);
-    }
-
-
-  }
-
-  async loadVideos(selectedMatchId: number, selectedVideoId: number) {
-    console.log(this.match + "matchId true")
-
-    var corsHeaders = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-    });
-    const vidData = await this.httpClient
-      .get(
-        'http://localhost:3000/api/match/getmatch/60cd39a12523c92d20603802',
-        { headers: corsHeaders }
-      )
-      .toPromise();
-    console.log(vidData + "this info");
-    var arr_selected ;
-    
-    for(var i=0;i<Object.keys(vidData).length;i++){
-      if(vidData[i]._id==this.match){
-       arr_selected = vidData[i];
-   
-      }
-    }
-    console.log("found the array")
-    console.log(arr_selected)
-
-
-    if (this.liveVideo.videoId == 0) {
-      this.liveVideo.videoId = 0;
-      this.liveVideo.title = arr_selected.title;
-      this.liveVideo.src = arr_selected.youtube_url;
-      //this.liveVideo.matchType=arr_selected.matchType;
-      this.liveVideo.matchId = arr_selected._id;
-      this.liveVideo.url=arr_selected.url;
-
-      if(arr_selected.url!=""){
-        this.liveVideo.showurl=true;
-      }
-      else{
-        this.liveVideo.showurl=false;
-      }
-
-    }
-
-    var i_value = 1;
-    for (var i = i_value; i <= Object.keys(arr_selected.innings_1).length; i++) {
-
-      const vidObject: videoInfo_index = { matchId: 0, matchType: "", videoId: 0, src: "", showOnTop: false, title: "", img: "", index: 0,url:"",showurl:false };
-      vidObject.matchId = arr_selected.innings_1[i-1]._id,
-        vidObject.src = arr_selected.innings_1[i-1].url + '?autoplay=1';
-      vidObject.title = arr_selected.innings_1[i-1].title;
-      vidObject.videoId = i;
-      vidObject.url=arr_selected.innings_1[i-1].url;
-      if(arr_selected.innings_1[i-1].url!=""){
-        vidObject.showurl=true;
-      }
-      else{
-        vidObject.showurl=false;
-      }
-
-      this.inning_1_info.push(vidObject);
-      i_value = i;
-    }
-
-
-   // i_value = i_value + 1;
-    for (var i = i_value; i <=Object.keys(arr_selected.innings_2).length; i++) {
-
-      const vidObject: videoInfo_index = { matchId: 0, matchType: "", videoId: 0, src: "", showOnTop: false, title: "", img: "", index: 0,url:"",showurl:false };
-      vidObject.matchId = arr_selected.innings_1[i-1]._id,
-        vidObject.src = arr_selected.innings_1[i-1].url + '?autoplay=1';
-      vidObject.title = arr_selected.innings_1[i-1].title;
-      vidObject.videoId = i + i_value;
-      i_value = i + i_value;
-      vidObject.url=arr_selected.innings_2[i-1].url;
-
-      if(arr_selected.innings_2[i-1].url!=""){
-        vidObject.showurl=true;
-      }
-      else{
-        vidObject.showurl=false;
-      }
-      this.inning_2_info.push(vidObject);
-    }
-
-
-
-    this.innings_1 = [];
-    this.innings_2 = [];
-    for (var i = 0; i < this.inning_1_info.length; i++) {
-      if (this.inning_1_info[i].videoId == this.videoId) {
-        this.topVideo = this.inning_1_info[i];
-        this.topVideo.src = this.topVideo.src + "?autoplay=1";
-        this.innings_1.push(this.liveVideo)
-      }
-      else {
-        this.innings_1.push(this.inning_1_info[i])
-      }
-
-    }
-    for (var i = 0; i < this.inning_2_info.length; i++) {
-
-      if (this.inning_2_info[i].videoId == this.videoId) {
-        this.topVideo = this.inning_2_info[i];
-        this.topVideo.src = this.topVideo.src + "?autoplay=1";
-        this.innings_2.push(this.liveVideo)
-      }
-      else {
-        this.innings_2.push(this.inning_2_info[i])
-      }
-    }
-
-    if (this.topVideo.videoId === 0) {
-      this.topVideo = this.liveVideo;
-    }
-    console.log(this.innings_1)
-    console.log(this.innings_2)
-
-
-    this.show_innings1 = this.innings_1.length > 0 ? true : false;
-    this.show_innings2 = this.innings_2.length > 0 ? true : false;
-    //this.products = data;
-
-
-    console.log(this.show_innings1)
-  }
-  swapVideos(selectedMatchId: number, selectedVideoId: number) {
-    console.log("comes here now");
   }
 
   videoURL(url: string) {
@@ -200,6 +95,168 @@ export class IndexComponent implements OnInit {
   }
 
 
+  async getVideos() {
+    var corsHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    });
+    const vidData = await this.httpClient
+      .get(
+        'https://backend-dot-wowzalivestreaming.uc.r.appspot.com/api/match/getrecordedmatch/60cd39a12523c92d20603802',
+        { headers: corsHeaders }
+      )
+      .toPromise();
+      console.log("ThisData")
+      console.log(vidData)
+    for (var i = 0; i < Object.keys(vidData).length; i++) {
+      if (i == 0) {
+          //this.topVideo = data['matchInfo'][i];
+          this.topVideo.matchId=vidData[i]._id;
+          console.log("topyoutubeUrl",vidData[i].youtubeUrl)
+          if (vidData[i].youtubeUrl==null){
+            this.topVideo.src="";
+          }else{
+            this.topVideo.src=vidData[i].youtubeUrl+ '?autoplay=1';
+          }
+          //this.topVideo.src=vidData[i].youtubeUrl+ '?autoplay=1';
+          this.topVideo.title=vidData[i].matchName;
+          this.topVideo.videoId=i;
+          this.topVideo.url=vidData[i].scrapingLink;
+          if(vidData[i].url!=""){
+            this.topVideo.showurl=true;
+          }
+          else{
+
+            this.topVideo.showurl=false;
+          }
+          
+          //this.topVideo.src = this.topVideo.src + '?autoplay=1';
+          this.topSafeUrl ==
+          this._sanitizer.bypassSecurityTrustUrl(this.topVideo.src);
+        
+      }else {
+        //this.otherVideos.push(data['matchInfo'][i]);
+        const vidObject:videoInfo = {
+          matchId: 0,
+          matchType: '',
+          videoId: 0,
+          src: '',
+          showOnTop: false,
+          title: '',
+          img: '',
+          url:'',
+          showurl:false
+        };
+        vidObject.matchId=vidData[i]._id;
+        if (vidData[i].youtubeUrl==null){
+          vidObject.src="";
+        }else{
+        vidObject.src=vidData[i].youtubeUrl+ '?autoplay=1';
+        }
+        vidObject.title=vidData[i].matchName;
+        vidObject.videoId=i;
+        vidObject.url=vidData[i].scrapingLink;
+        if(vidObject.url!=""){
+          vidObject.showurl=true;
+        }
+        else{
+
+          vidObject.showurl=false;
+        }
+        this.otherVideos.push(vidObject);
+
+      }
+    }
+    console.log(this.topVideo);
+    console.log(this.otherVideos);
+  }
+
+
+  async getSeriesVideos(series_name) {
+    var corsHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    });
+    const vidData = await this.httpClient
+      .get(
+        'https://backend-dot-wowzalivestreaming.uc.r.appspot.com/api/match/getrecordedmatch/60cd39a12523c92d20603802',
+        { headers: corsHeaders }
+      )
+      .toPromise();
+      console.log("ThisData")
+      console.log(vidData)
+
+     
+      var finalList:Array<any>=[];
+      for(var i=0;i<Object.keys(vidData).length;i++){
+        
+        if(vidData[i].seriesName.includes(series_name))
+        {
+          finalList.push(vidData[i]);
+        }
+          
+      }
+    for (var i = 0; i < Object.keys(finalList).length; i++) {
+      if (i == 0) {
+          //this.topVideo = data['matchInfo'][i];
+          this.topVideo.matchId=finalList[i]._id;
+          if (finalList[i].youtubeUrl==null){
+            this.topVideo.src="";
+          }else{
+            this.topVideo.src=finalList[i].youtubeUrl+ '?autoplay=1';
+          }
+          //this.topVideo.src=vidData[i].youtubeUrl+ '?autoplay=1';
+          this.topVideo.title=finalList[i].matchName;
+          this.topVideo.videoId=i;
+          this.topVideo.url=finalList[i].scrapingLink;
+          if(vidData[i].url!=""){
+            this.topVideo.showurl=true;
+          }
+          else{
+
+            this.topVideo.showurl=false;
+          }
+          
+          //this.topVideo.src = this.topVideo.src + '?autoplay=1';
+          this.topSafeUrl ==
+          this._sanitizer.bypassSecurityTrustUrl(this.topVideo.src);
+        
+      }else {
+        //this.otherVideos.push(data['matchInfo'][i]);
+        const vidObject:videoInfo = {
+          matchId: 0,
+          matchType: '',
+          videoId: 0,
+          src: '',
+          showOnTop: false,
+          title: '',
+          img: '',
+          url:'',
+          showurl:false
+        };
+        vidObject.matchId=vidData[i]._id;
+        if (vidData[i].youtubeUrl==null){
+          vidObject.src="";
+        }else{
+        vidObject.src=vidData[i].youtubeUrl+ '?autoplay=1';
+        }
+        vidObject.title=vidData[i].matchName;
+        vidObject.videoId=i;
+        vidObject.url=vidData[i].scrapingLink;
+        if(vidObject.url!=""){
+          vidObject.showurl=true;
+        }
+        else{
+
+          vidObject.showurl=false;
+        }
+        this.otherVideos.push(vidObject);
+
+      }
+    }
+    console.log(this.topVideo);
+    console.log(this.otherVideos);
+  }
 
 
 }

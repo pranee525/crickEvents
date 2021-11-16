@@ -8,7 +8,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
-import { NumberSymbol } from '@angular/common';
+import { getLocaleDateFormat, NumberSymbol } from '@angular/common';
 import { FormControl, Validators } from '@angular/forms';
 
 export interface videoInfo {
@@ -53,7 +53,8 @@ export class PlaylistComponent implements OnInit {
 
   constructor(
     private httpClient: HttpClient,
-    private _sanitizer: DomSanitizer
+    private _sanitizer: DomSanitizer,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   async ngOnInit() {
@@ -76,8 +77,20 @@ export class PlaylistComponent implements OnInit {
       console.log(this.otherVideos);
       //this.products = data;
     }); */
+    this.activatedRoute.queryParams.subscribe(async params => {
+      console.log(params['series'])
+    let series_name = params['series']!=null?params['series']:"";
+    //let color = params['color'];
+    if(series_name!=""){
 
-    await this.getVideos();
+      await this.getSeriesVideos(series_name);
+    }
+    else
+    {
+
+      await this.getVideos();
+    }
+  });
   }
 
   videoURL(url: string) {
@@ -94,19 +107,25 @@ export class PlaylistComponent implements OnInit {
     });
     const vidData = await this.httpClient
       .get(
-        'http://localhost:3000/api/match/getmatch/60cd39a12523c92d20603802',
+        'https://backend-dot-wowzalivestreaming.uc.r.appspot.com/api/match/getlivematch/60cd39a12523c92d20603802',
         { headers: corsHeaders }
       )
       .toPromise();
-
+      console.log("ThisData")
+      console.log(vidData)
     for (var i = 0; i < Object.keys(vidData).length; i++) {
       if (i == 0) {
           //this.topVideo = data['matchInfo'][i];
           this.topVideo.matchId=vidData[i]._id;
-          this.topVideo.src=vidData[i].youtube_url+ '?autoplay=1';
-          this.topVideo.title=vidData[i].title;
+          if (vidData[i].youtubeUrl==null){
+            this.topVideo.src="";
+          }else{
+          this.topVideo.src=vidData[i].youtubeUrl+ '?autoplay=1';
+          }
+         // this.topVideo.src=vidData[i].youtubeUrl+ '?autoplay=1';
+          this.topVideo.title=vidData[i].matchName;
           this.topVideo.videoId=i;
-          this.topVideo.url=vidData[i].url;
+          this.topVideo.url=vidData[i].scrapingLink;
           if(vidData[i].url!=""){
             this.topVideo.showurl=true;
           }
@@ -132,11 +151,100 @@ export class PlaylistComponent implements OnInit {
           url:'',
           showurl:false
         };
-        vidObject.matchId=vidData[i]._id,
-        vidObject.src=vidData[i].youtube_url+ '?autoplay=1';
-        vidObject.title=vidData[i].title;
+        vidObject.matchId=vidData[i]._id;
+        if (vidData[i].youtubeUrl==null){
+          vidObject.src="";
+        }else{
+        vidObject.src=vidData[i].youtubeUrl+ '?autoplay=1';
+        }
+        vidObject.title=vidData[i].matchName;
         vidObject.videoId=i;
-        vidObject.url=vidData[i].url;
+        vidObject.url=vidData[i].scrapingLink;
+        if(vidObject.url!=""){
+          vidObject.showurl=true;
+        }
+        else{
+
+          vidObject.showurl=false;
+        }
+        this.otherVideos.push(vidObject);
+
+      }
+    }
+    console.log(this.topVideo);
+    console.log(this.otherVideos);
+  }
+
+  async getSeriesVideos(series_name) {
+    var corsHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    });
+    const vidData = await this.httpClient
+      .get(
+        'https://backend-dot-wowzalivestreaming.uc.r.appspot.com/api/match/getlivematch/60cd39a12523c92d20603802',
+        { headers: corsHeaders }
+      )
+      .toPromise();
+      console.log("ThisData")
+      console.log(vidData)
+
+      var finalList:Array<any>=[];
+      for(var i=0;i<Object.keys(vidData).length;i++){
+        
+        if(vidData[i].seriesName.includes(series_name))
+        {
+          finalList.push(vidData[i]);
+        }
+          
+      }
+    for (var i = 0; i < Object.keys(finalList).length; i++) {
+      if (i == 0) {
+          //this.topVideo = data['matchInfo'][i];
+          this.topVideo.matchId=finalList[i]._id;
+          if (finalList[i].youtubeUrl==null){
+            this.topVideo.src="";
+          }else{
+            this.topVideo.src=finalList[i].youtubeUrl+ '?autoplay=1';
+          }
+          //this.topVideo.src=vidData[i].youtubeUrl+ '?autoplay=1';
+          this.topVideo.title=finalList[i].matchName;
+          this.topVideo.videoId=i;
+          this.topVideo.url=finalList[i].scrapingLink;
+          if(vidData[i].url!=""){
+            this.topVideo.showurl=true;
+          }
+          else{
+
+            this.topVideo.showurl=false;
+          }
+          
+          //this.topVideo.src = this.topVideo.src + '?autoplay=1';
+          this.topSafeUrl ==
+          this._sanitizer.bypassSecurityTrustUrl(this.topVideo.src);
+        
+      }else {
+        //this.otherVideos.push(data['matchInfo'][i]);
+        const vidObject:videoInfo = {
+          matchId: 0,
+          matchType: '',
+          videoId: 0,
+          src: '',
+          showOnTop: false,
+          title: '',
+          img: '',
+          url:'',
+          showurl:false
+        };
+        vidObject.matchId=vidData[i]._id;
+        if (vidData[i].youtubeUrl==null){
+          vidObject.src="";
+        }else{
+        vidObject.src=vidData[i].youtubeUrl+ '?autoplay=1';
+        }
+        vidObject.title=vidData[i].matchName;
+        vidObject.videoId=i;
+        vidObject.url=vidData[i].scrapingLink;
         if(vidObject.url!=""){
           vidObject.showurl=true;
         }
