@@ -1,3 +1,4 @@
+
 import { Component, OnInit, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgImageSliderComponent } from 'ng-image-slider';
 import { CommonModule } from '@angular/common';
@@ -23,11 +24,11 @@ export interface videoInfo {
 }
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  selector: 'app-recorded',
+  templateUrl: './recorded.component.html',
+  styleUrls: ['./recorded.component.css']
 })
-export class IndexComponent implements OnInit {
+export class RecordedComponent implements OnInit {
 
   name = '';
   topSafeUrl = '';
@@ -85,7 +86,7 @@ export class IndexComponent implements OnInit {
       else
       {
 
-        await this.getSeriesVideos("Thanksgiving");
+        await this.getSeriesVideos("Thanks");
       }
     });
   }
@@ -116,7 +117,7 @@ export class IndexComponent implements OnInit {
           if (vidData[i].youtubeUrl==null){
             this.topVideo.src="";
           }else{
-            this.topVideo.src=vidData[i].youtubeUrl;
+            this.topVideo.src=vidData[i].youtubeUrl+ '?autoplay=1';
           }
           //this.topVideo.src=vidData[i].youtubeUrl+ '?autoplay=1';
           this.topVideo.title=vidData[i].matchName;
@@ -151,7 +152,7 @@ export class IndexComponent implements OnInit {
         if (vidData[i].youtubeUrl==null){
           vidObject.src="";
         }else{
-        vidObject.src=vidData[i].youtubeUrl;
+        vidObject.src=vidData[i].youtubeUrl+ '?autoplay=1';
         }
         vidObject.title=vidData[i].matchName;
         vidObject.videoId=i;
@@ -180,6 +181,7 @@ export class IndexComponent implements OnInit {
     const vidData = await this.httpClient
       .get(
         'https://backend-dot-wowzalivestreaming.uc.r.appspot.com/api/match/getrecordedmatch/60cd39a12523c92d20603802',
+        //'http://localhost:3000/api/match/getrecordedmatch/60cd39a12523c92d20603802',
         { headers: corsHeaders }
       )
       .toPromise();
@@ -189,8 +191,10 @@ export class IndexComponent implements OnInit {
      
       var finalList:Array<any>=[];
       for(var i=0;i<Object.keys(vidData).length;i++){
-        
-        if(vidData[i].seriesName.includes(series_name))
+        if(vidData[i].seriesName==null){
+          finalList.push(vidData[i]);
+        }
+        else if(vidData[i].seriesName.includes(series_name))
         {
           finalList.push(vidData[i]);
         }

@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { RecordedComponent } from './Home/recorded/recorded.component';
 
 
 
@@ -26,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     IndexComponent,
     PlaylistComponent,
     ManagejsonComponent,
+    RecordedComponent,
     
   ],
   imports: [
