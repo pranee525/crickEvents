@@ -1,240 +1,368 @@
-
-
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>CrickAi</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/images/favicon.ico"
+    />
     <!-- CSS 
     ========================= -->
-   
+
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
-    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/assets/css/bootstrap.min.css"
+    />
+
     <!-- Fonts CSS -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/material-design-iconic-font.min.css">
-    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/assets/css/material-design-iconic-font.min.css"
+    />
+
     <!-- Plugins CSS -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/plugins.css">
-    
+    <link rel="stylesheet" type="text/css" href="/assets/css/plugins.css" />
+
     <!-- Main Style CSS -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-    
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+
     <!-- Modernizer JS -->
-    <script type="application/javascript" src="/assets/js/vendor/modernizr-3.6.0.min.js"></script>
-    <script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+    <script
+      type="application/javascript"
+      src="/assets/js/vendor/modernizr-3.6.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"
+    ></script>
 
-<!-- THEOplayer library and css -->
-<style>
-    .fixHead{
-        position:fixed; top:0px; margin:auto; z-index:100000; width:100%;
-    }
-</style>
-</head>
+    <!-- THEOplayer library and css -->
+    <style>
+      .fixHead {
+        position: fixed;
+        top: 0px;
+        margin: auto;
+        z-index: 100000;
+        width: 100%;
+      }
+    </style>
+  </head>
 
-<body>
-
-<!-- Main Wrapper Start -->
-<div class="main-wrapper">
-    
-    <!-- header-medea -->
-    <header class="header-medea clearfix header-sticky fixHead">
-        <div class="container-fluid ">
-            <div class="row no-gutters">
-                <div class="col-lg-12">
-                    <div class="header-medea-inner-area" style="padding-left: 42px !important;">
-                        <div class="left-side">
-                            <div class="logo-medea">
-                                <a href="woodley/live"><img style="height: 43px;" src="assets/images/logo/logo-2.png" alt=""></a>
-                            </div>
-                        </div>
-                        
-
-                        <div class="right-side d-flex">
-                            
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="col">
-                        <div class="mobile-sidebar d-block d-lg-none">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                    
+  <body>
+    <!-- Main Wrapper Start -->
+    <div class="main-wrapper">
+      <!-- header-medea -->
+      <!-- <header class="header-medea clearfix header-sticky fixHead">
+        <div class="container-fluid">
+          <div class="row no-gutters">
+            <div class="col-lg-12">
+              <div
+                class="header-medea-inner-area"
+                style="padding-left: 42px !important"
+              >
+                <div class="left-side">
+                  <div class="logo-medea">
+                    <a href="woodley/live"
+                      ><img
+                        style="height: 43px"
+                        src="assets/images/logo/logo-2.png"
+                        alt=""
+                    /></a>
+                  </div>
                 </div>
+
+                <div class="right-side d-flex"></div>
+              </div>
+
+              <div class="col">
+                <div class="mobile-sidebar d-block d-lg-none">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </header>
-    <!--// header-medea -->  
-    
-    <!-- side-main-menu -->
-    <div class="side-main-menu">
+      </header> -->
+      <!--// header-medea -->
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo03"
+          aria-controls="navbarTogglerDemo03"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a href="woodley/live"
+          ><img style="height: 43px" src="assets/images/logo/logo-2.png" alt=""
+        /></a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active d-lg-none">
+              <a class="nav-link" href="woodley/live">Live Matches</a>
+            </li>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link" href="woodley/recorded">Recorded Matches</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- side-main-menu -->
+      <div class="side-main-menu">
         <nav class="sidebar-menu" data-simplebar>
-            <ul>
-                <li class="normal-item-pro">
-                    <a href="woodley/live">
-                        <i class="zmdi zmdi-tv-alt-play"></i>
-                        <span>Live Matches</span>
-                    </a>
-                </li>
-                <li class="normal-item-pro">
-                    <a href="woodley/recorded">
-                        <i class="zmdi zmdi-collection-music"></i>
-                        <span>Recorded Matches</span>
-                    </a>
-                </li>
+          <ul>
+            <li class="normal-item-pro">
+              <a href="woodley/live">
+                <i class="zmdi zmdi-tv-alt-play"></i>
+                <span>Live Matches</span>
+              </a>
+            </li>
+            <li class="normal-item-pro">
+              <a href="woodley/recorded">
+                <i class="zmdi zmdi-collection-music"></i>
+                <span>Recorded Matches</span>
+              </a>
+            </li>
 
-                <li class="normal-item-pro">
-               <!-- Begin Mailchimp Signup Form -->
-<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+            <li class="normal-item-pro">
+              <!-- Begin Mailchimp Signup Form -->
+              <link
+                href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css"
+                rel="stylesheet"
+                type="text/css"
+              />
+              <style type="text/css">
+                #mc_embed_signup {
+                  background: #fff;
+                  clear: left;
+                  font: 14px Helvetica, Arial, sans-serif;
+                }
+                /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
 	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
-<div id="mc_embed_signup">
-<form action="https://crickai.us6.list-manage.com/subscribe/post?u=14e2a63f0451dd5ba443f2b52&amp;id=cbdff22986" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll">
-	<h2>Subscribe</h2>
-<div class="mc-field-group">
-	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
-</label>
-	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-</div>
-<div class="mc-field-group">
-	<label for="mce-FNAME">First Name </label>
-	<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
-</div>
-<div class="mc-field-group">
-	<label for="mce-LNAME">Last Name </label>
-	<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
-</div>
-	<div id="mce-responses" class="clear">
-		<div class="response" id="mce-error-response" style="display:none"></div>
-		<div class="response" id="mce-success-response" style="display:none"></div>
-	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_14e2a63f0451dd5ba443f2b52_cbdff22986" tabindex="-1" value=""></div>
-    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-    </div>
-</form>
-</div>
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-<!--End mc_embed_signup-->
-
-                </li>
-            </ul>
+              </style>
+              <div id="mc_embed_signup">
+                <form
+                  action="https://crickai.us6.list-manage.com/subscribe/post?u=14e2a63f0451dd5ba443f2b52&amp;id=cbdff22986"
+                  method="post"
+                  id="mc-embedded-subscribe-form"
+                  name="mc-embedded-subscribe-form"
+                  class="validate"
+                  target="_blank"
+                  novalidate
+                >
+                  <div id="mc_embed_signup_scroll">
+                    <h2>Subscribe</h2>
+                    <div class="mc-field-group">
+                      <label for="mce-EMAIL"
+                        >Email Address <span class="asterisk">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        value=""
+                        name="EMAIL"
+                        class="required email"
+                        id="mce-EMAIL"
+                      />
+                    </div>
+                    <div class="mc-field-group">
+                      <label for="mce-FNAME">First Name </label>
+                      <input
+                        type="text"
+                        value=""
+                        name="FNAME"
+                        class=""
+                        id="mce-FNAME"
+                      />
+                    </div>
+                    <div class="mc-field-group">
+                      <label for="mce-LNAME">Last Name </label>
+                      <input
+                        type="text"
+                        value=""
+                        name="LNAME"
+                        class=""
+                        id="mce-LNAME"
+                      />
+                    </div>
+                    <div id="mce-responses" class="clear">
+                      <div
+                        class="response"
+                        id="mce-error-response"
+                        style="display: none"
+                      ></div>
+                      <div
+                        class="response"
+                        id="mce-success-response"
+                        style="display: none"
+                      ></div>
+                    </div>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div
+                      style="position: absolute; left: -5000px"
+                      aria-hidden="true"
+                    >
+                      <input
+                        type="text"
+                        name="b_14e2a63f0451dd5ba443f2b52_cbdff22986"
+                        tabindex="-1"
+                        value=""
+                      />
+                    </div>
+                    <div class="clear">
+                      <input
+                        type="submit"
+                        value="Subscribe"
+                        name="subscribe"
+                        id="mc-embedded-subscribe"
+                        class="button"
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <script
+                type="text/javascript"
+                src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
+              ></script>
+              <script type="text/javascript">
+                (function ($) {
+                  window.fnames = new Array();
+                  window.ftypes = new Array();
+                  fnames[0] = 'EMAIL';
+                  ftypes[0] = 'email';
+                  fnames[1] = 'FNAME';
+                  ftypes[1] = 'text';
+                  fnames[2] = 'LNAME';
+                  ftypes[2] = 'text';
+                  fnames[3] = 'ADDRESS';
+                  ftypes[3] = 'address';
+                  fnames[4] = 'PHONE';
+                  ftypes[4] = 'phone';
+                  fnames[5] = 'BIRTHDAY';
+                  ftypes[5] = 'birthday';
+                })(jQuery);
+                var $mcj = jQuery.noConflict(true);
+              </script>
+              <!--End mc_embed_signup-->
+            </li>
+          </ul>
         </nav>
-    </div>
-    <!--// side-main-menu -->    
-   
-    <!-- Page Conttent -->
-    <main class="page-content-wrapper" >
+      </div>
+      <!--// side-main-menu -->
+
+      <!-- Page Conttent -->
+      <main class="page-content-wrapper">
         <router-outlet></router-outlet>
         <footer class="footer-area coloer-three">
-            <div class="footer-top-one footer-bg-image-two">
-                <div class="container-coustom">
-                    <div class="row">   
-                        <div class="col-custom-8 mt--50">
-                            <!-- footer-widget -->
-                            <div class="footer-widget">
-                                
-    
-                            </div>
-                            <!--// footer-widget -->
-                        </div>
-    
-                        <div class="col-custom-2 mt--50">
-                            <!-- footer-widget -->
-                            <div class="footer-widget">
-    
-                                <div class="footer-contet">
-                                    
-                                </div>
-    
-                            </div>
-                            <!--// footer-widget -->
-                        </div>
-    
-                        <div class="col-custom-2 mt--50">
-                            <!-- footer-widget -->
-                            <div class="footer-widget">
-    
-                                <div class="footer-contet">
-                                    
-                                </div>
-    
-                            </div>
-                            <!--// footer-widget -->
-                        </div>
-    
-                        <div class="col-custom-4 mt--50" style="float: right;">
-                            <!-- footer-widget -->
-                            <div class="footer-widget">
-                                <h4 class="footer-widget-title">Contact</h4>
-    
-                                <div class="footer-contet">
-                                    <ul class="footer-contact-list">
-                                        <li> <i class="zmdi zmdi-email"></i> <a href="#">info@gaussiansolutions.com</a></li>
-                                    </ul>
-                                </div>
-    
-                            </div>
-                            <!--// footer-widget -->
-                        </div>
-                    </div>
+          <div class="footer-top-one footer-bg-image-two">
+            <div class="container-coustom">
+              <div class="row">
+                <div class="col-custom-8 mt--50">
+                  <!-- footer-widget -->
+                  <div class="footer-widget"></div>
+                  <!--// footer-widget -->
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="container-coustom">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <p class="copyright-text">Copyright &copy; 2021 All right reserve</p>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <ul class="footer-bottom-list">
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">support</a></li>
-                                <li><a href="#">contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
+
+                <div class="col-custom-2 mt--50">
+                  <!-- footer-widget -->
+                  <div class="footer-widget">
+                    <div class="footer-contet"></div>
+                  </div>
+                  <!--// footer-widget -->
                 </div>
+
+                <div class="col-custom-2 mt--50">
+                  <!-- footer-widget -->
+                  <div class="footer-widget">
+                    <div class="footer-contet"></div>
+                  </div>
+                  <!--// footer-widget -->
+                </div>
+
+                <div class="col-custom-4 mt--50" style="float: right">
+                  <!-- footer-widget -->
+                  <div class="footer-widget">
+                    <h4 class="footer-widget-title">Contact</h4>
+
+                    <div class="footer-contet">
+                      <ul class="footer-contact-list">
+                        <li>
+                          <i class="zmdi zmdi-email"></i>
+                          <a href="#">info@gaussiansolutions.com</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!--// footer-widget -->
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="container-coustom">
+              <div class="row">
+                <div class="col-lg-6 col-md-6">
+                  <p class="copyright-text">
+                    Copyright &copy; 2021 All right reserve
+                  </p>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <ul class="footer-bottom-list">
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">support</a></li>
+                    <li><a href="#">contact</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </footer>
-    </main> 
+      </main>
+    </div>
 
-   
-</div>
+    <!-- Main Wrapper End -->
 
-<!-- Main Wrapper End -->
-
-<!-- JS
+    <!-- JS
 ============================================ -->
 
-<!-- jQuery JS -->
-<script type="application/javascript" src="assets/js/vendor/jquery-3.3.1.min.js"></script>
-<!-- Popper JS -->
-<script type="application/javascript" src="assets/js/popper.min.js"></script>
-<!-- Bootstrap JS -->
-<script type="application/javascript" src="assets/js/bootstrap.min.js"></script>
-<!-- Plugins JS -->
-<script type="application/javascript" src="assets/js/plugins.js"></script>
-<!-- Ajax Mail -->
-<script type="application/javascript" src="assets/js/ajax-mail.js"></script>
-<!-- Main JS -->
-<script type="application/javascript" src="assets/js/main.js"></script>
-
-
-</body>
-
+    <!-- jQuery JS -->
+    <script
+      type="application/javascript"
+      src="assets/js/vendor/jquery-3.3.1.min.js"
+    ></script>
+    <!-- Popper JS -->
+    <script
+      type="application/javascript"
+      src="assets/js/popper.min.js"
+    ></script>
+    <!-- Bootstrap JS -->
+    <script
+      type="application/javascript"
+      src="assets/js/bootstrap.min.js"
+    ></script>
+    <!-- Plugins JS -->
+    <script type="application/javascript" src="assets/js/plugins.js"></script>
+    <!-- Ajax Mail -->
+    <script type="application/javascript" src="assets/js/ajax-mail.js"></script>
+    <!-- Main JS -->
+    <script type="application/javascript" src="assets/js/main.js"></script>
+  </body>
 </html>
