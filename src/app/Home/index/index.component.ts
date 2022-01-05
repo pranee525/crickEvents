@@ -102,7 +102,8 @@ export class IndexComponent implements OnInit {
     });
     const vidData = await this.httpClient
       .get(
-        'https://backend-dot-wowzalivestreaming.uc.r.appspot.com/api/match/getrecordedmatch/60cd39a12523c92d20603802',
+        //'http://localhost:5000/api/match/getrecordedmatch/60cd39a12523c92d20603802',
+       'https://backend-dot-wowzalivestreaming.uc.r.appspot.com/api/match/getrecordedmatch/60cd39a12523c92d20603802',
         { headers: corsHeaders }
       )
       .toPromise();
@@ -116,7 +117,7 @@ export class IndexComponent implements OnInit {
           if (vidData[i].youtubeUrl==null){
             this.topVideo.src="";
           }else{
-            this.topVideo.src=vidData[i].youtubeUrl;
+            this.topVideo.src=vidData[i].youtubeUrl+'?enablejsapi=1';
           }
           //this.topVideo.src=vidData[i].youtubeUrl+ '?autoplay=1';
           this.topVideo.title=vidData[i].matchName;
@@ -179,7 +180,8 @@ export class IndexComponent implements OnInit {
     });
     const vidData = await this.httpClient
       .get(
-        'https://backend-dot-wowzalivestreaming.uc.r.appspot.com/api/match/getrecordedmatch/60cd39a12523c92d20603802',
+        https://backend-dot-wowzalivestreaming.uc.r.appspot.com/api/match/getrecordedmatch/60cd39a12523c92d20603802',
+        //'http://localhost:5000/api/match/getrecordedmatch/60cd39a12523c92d20603802',
         { headers: corsHeaders }
       )
       .toPromise();

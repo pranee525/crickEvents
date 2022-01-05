@@ -28,13 +28,13 @@
                                 You can checkout recorded Matches till then.
                             </div>
                         </div>
-                        <iframe *ngIf="topVideo.src!=''" style="height: 555px;" [src]="videoURL(topVideo.src)"
+                        <iframe id="topVideo.matchId" *ngIf="topVideo.src!=''" style="height: 555px;" [src]="videoURL(topVideo.src)"
                             allowfullscreen allow="autoplay"></iframe>
                     </div>
                     <div class="product-contents titleStyle">
                         <h4><a href="highlights?matchId={{topVideo.matchId}}">{{topVideo.title}}</a></h4>
                         <div class="pro-quality" *ngIf="topVideo.showurl">
-                            Links:<a href="{{topVideo.url}}" target="_blank">Score Card</a>
+                            Links:<a href="{{topVideo.url}}" target="_blank">Score Card</a>,<a href="{{topVideo.src}}" target="_blank">Youtube</a>
                         </div>
                     </div>
                 </div>
@@ -68,13 +68,13 @@
                                     <div class="setCenter">Match will Start Soon<br> 
                                         You can checkout recorded Matches till then.</div>
                                 </div>
-                                <iframe *ngIf="vid.src!=''" style="height: 555px;" [src]="videoURL(vid.src)"
+                                <iframe id="vid.matchId" *ngIf="vid.src!=''" style="height: 555px;" [src]="videoURL(vid.src)"
                                     allowfullscreen allow="autoplay"></iframe>
                             </div>
                             <div class="product-contents titleStyle">
                                 <h4><a href="highlights?matchId={{vid.matchId}}">{{vid.title}}</a></h4>
                                 <div class="pro-quality" *ngIf="vid.showurl">
-                                    Links:<a href="{{vid.url}}" target="_blank">Score Card</a>
+                                    Links:<a href="{{vid.url}}" target="_blank">Score Card</a>,<a href="{{vid.src}}" target="_blank">Youtube</a>
                                 </div>
                             </div>
                         </div>
@@ -86,6 +86,34 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="http://www.youtube.com/player_api"></script>
+<script type="text/javascript">
+    players = new Array();
+
+    function onYouTubeIframeAPIReady() {
+        var temp = $("iframe.yt_players");
+        for (var i = 0; i < temp.length; i++) {
+            var t = new YT.Player($(temp[i]).attr('id'), {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+            players.push(t);
+        }
+    }
+    onYouTubeIframeAPIReady();
+
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING) {
+            var temp = event.target.a.src;
+            var tempPlayers = $("iframe.yt_players");
+            for (var i = 0; i < players.length; i++) {
+                if (players[i].a.src != temp) 
+                    players[i].stopVideo();
+            }
+        }
+    }
+</script>
 <!--// Our-product-area Area  -->
 
 <!-- Footer Area -->

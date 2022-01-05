@@ -88,8 +88,11 @@ export class PlaylistComponent implements OnInit {
     else
     {
 
-      await this.getVideos();
+      await this.getSeriesVideos("Thanksgiving");
     }
+
+
+    
   });
   }
 
@@ -120,7 +123,7 @@ export class PlaylistComponent implements OnInit {
           if (vidData[i].youtubeUrl==null){
             this.topVideo.src="";
           }else{
-          this.topVideo.src=vidData[i].youtubeUrl+ '?autoplay=1';
+          this.topVideo.src=vidData[i].youtubeUrl;
           }
          // this.topVideo.src=vidData[i].youtubeUrl+ '?autoplay=1';
           this.topVideo.title=vidData[i].matchName;
@@ -155,7 +158,7 @@ export class PlaylistComponent implements OnInit {
         if (vidData[i].youtubeUrl==null){
           vidObject.src="";
         }else{
-        vidObject.src=vidData[i].youtubeUrl+ '?autoplay=1';
+        vidObject.src=vidData[i].youtubeUrl;
         }
         vidObject.title=vidData[i].matchName;
         vidObject.videoId=i;
@@ -205,7 +208,7 @@ export class PlaylistComponent implements OnInit {
           if (finalList[i].youtubeUrl==null){
             this.topVideo.src="";
           }else{
-            this.topVideo.src=finalList[i].youtubeUrl+ '?autoplay=1';
+            this.topVideo.src=finalList[i].youtubeUrl;
           }
           //this.topVideo.src=vidData[i].youtubeUrl+ '?autoplay=1';
           this.topVideo.title=finalList[i].matchName;
@@ -240,7 +243,7 @@ export class PlaylistComponent implements OnInit {
         if (vidData[i].youtubeUrl==null){
           vidObject.src="";
         }else{
-        vidObject.src=vidData[i].youtubeUrl+ '?autoplay=1';
+        vidObject.src=vidData[i].youtubeUrl;
         }
         vidObject.title=vidData[i].matchName;
         vidObject.videoId=i;
